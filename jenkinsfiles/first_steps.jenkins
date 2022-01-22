@@ -1,5 +1,5 @@
 #!groovy
-// Check ub1 properties
+// Check alt properties
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -19,6 +19,11 @@ pipeline {
         stage("Second step") {
             steps {
                 sh 'ssh root@alt \'uptime\''
+            }
+        }
+        stage("Third step"){
+            steps {
+                sh 'ssh root@alt ifconfig'
             }
         }
     }
